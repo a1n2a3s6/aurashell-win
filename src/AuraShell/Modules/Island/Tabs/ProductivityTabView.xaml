@@ -1,0 +1,161 @@
+<UserControl x:Class="AuraShell.Modules.Island.Tabs.ProductivityTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid Margin="4,2,4,2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.1*"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Column: Clock + Pomodoro + Custom Countdown + Stopwatch -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="6"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Feature 4: Live Digital Clock + Date -->
+            <Border Grid.Row="0" Background="#0E121B" CornerRadius="11" BorderBrush="#1E2536"
+                    BorderThickness="1" Padding="10,6">
+                <Grid>
+                    <StackPanel>
+                        <TextBlock x:Name="LiveClockText" Text="10:24:00" FontSize="20" FontWeight="Bold"
+                                   Foreground="#F8FAFC" FontFamily="Consolas"/>
+                        <TextBlock x:Name="LiveDateText" Text="Wednesday, Nov 25" FontSize="10.5"
+                                   Foreground="#94A3B8"/>
+                    </StackPanel>
+
+                    <!-- Feature 6 & 7: Keep-Awake (Caffeine) + Focus/DND toggles -->
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Button x:Name="CaffeineBtn" Style="{StaticResource IslandChipBtn}"
+                                Click="CaffeineBtn_Click" Padding="7,2" Margin="0,0,0,4" FontSize="10.5">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="☕" Margin="0,0,4,0"/>
+                                <TextBlock Text="{DynamicResource ProdCaffeine}"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="DndBtn" Style="{StaticResource IslandChipBtn}"
+                                Click="DndBtn_Click" Padding="7,2" FontSize="10.5">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🌙" Margin="0,0,4,0"/>
+                                <TextBlock Text="{DynamicResource ProdDnd}"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Feature 1, 2, 3: Pomodoro 25m + Custom Countdown + Stopwatch -->
+            <Border Grid.Row="2" Background="#0E121B" CornerRadius="11" BorderBrush="#1E2536"
+                    BorderThickness="1" Padding="9,7">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Button x:Name="PomodoroBtn" Style="{StaticResource IslandChipBtn}"
+                                Content="{DynamicResource ProdPomodoro}" Click="PomodoroBtn_Click"
+                                Padding="6,2" FontSize="10" Margin="0,0,4,0"/>
+                        <TextBox x:Name="CustomMinBox" Style="{StaticResource IslandTextBox}"
+                                 Text="10" Width="34" Padding="4,2" FontSize="10.5"
+                                 TextAlignment="Center" Margin="0,0,4,0"/>
+                        <Button x:Name="CustomCountdownBtn" Style="{StaticResource IslandChipBtn}"
+                                Content="{DynamicResource ProdCountdown}" Click="CustomCountdownBtn_Click"
+                                Padding="6,2" FontSize="10" Margin="0,0,4,0"/>
+                        <Button x:Name="StopwatchModeBtn" Style="{StaticResource IslandChipBtn}"
+                                Content="{DynamicResource ProdStopwatch}" Click="StopwatchModeBtn_Click"
+                                Padding="6,2" FontSize="10"/>
+                    </StackPanel>
+
+                    <TextBlock x:Name="TimerDisplayText" Grid.Row="1" Text="25:00"
+                               FontSize="24" FontWeight="Bold" FontFamily="Consolas"
+                               Foreground="#38BDF8" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="TimerToggleBtn" Style="{StaticResource IslandAccentBtn}"
+                                Content="{DynamicResource ProdStart}" Click="TimerToggleBtn_Click"
+                                Padding="12,3" FontSize="11" Margin="0,0,6,0"/>
+                        <Button x:Name="TimerResetBtn" Style="{StaticResource IslandChipBtn}"
+                                Content="{DynamicResource ProdReset}" Click="TimerResetBtn_Click"
+                                Padding="10,3" FontSize="11"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <!-- Right Column: Feature 5 Today's Quick To-Do Counter + Feature 8 Quick Calculator -->
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Feature 5: Today's Quick To-Do Counter -->
+            <Border Grid.Row="0" Background="#0E121B" CornerRadius="11" BorderBrush="#1E2536"
+                    BorderThickness="1" Padding="8,6">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="4"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="4"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="{DynamicResource ProdTodos}" FontSize="11" FontWeight="SemiBold" Foreground="#E2E8F0"/>
+                        <Border Background="#1E293B" CornerRadius="7" Padding="6,1" HorizontalAlignment="Right">
+                            <TextBlock x:Name="TodoCountText" Text="0/0" FontSize="10" Foreground="#34D399" FontWeight="SemiBold"/>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="TodoInput" Grid.Column="0" Style="{StaticResource IslandTextBox}"
+                                 FontSize="11" Padding="6,3" KeyDown="TodoInput_KeyDown"
+                                 ToolTip="{DynamicResource ProdTodoPlaceholder}"/>
+                        <Button Grid.Column="2" Style="{StaticResource IslandAccentBtn}"
+                                Content="+" Width="24" Height="24" Padding="0" Click="AddTodoBtn_Click"/>
+                    </Grid>
+
+                    <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="TodoListPanel"/>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <!-- Feature 8: Quick Calculator (= 145*12) -->
+            <Border Grid.Row="2" Background="#0E121B" CornerRadius="11" BorderBrush="#1E2536"
+                    BorderThickness="1" Padding="8,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="CalcInput" Grid.Column="0" Style="{StaticResource IslandTextBox}"
+                             FontFamily="Consolas" FontSize="11.5" Padding="6,3"
+                             TextChanged="CalcInput_TextChanged"
+                             ToolTip="{DynamicResource ProdCalcPlaceholder}"/>
+                    <TextBlock x:Name="CalcPlaceholder" Grid.Column="0" Text="{DynamicResource ProdCalcPlaceholder}"
+                               FontFamily="Consolas" FontSize="11" Foreground="#64748B"
+                               IsHitTestVisible="False" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                    <Button x:Name="CalcResultBtn" Grid.Column="2" Style="{StaticResource IslandChipBtn}"
+                            Content="= 0" FontFamily="Consolas" FontSize="11.5" Foreground="#38BDF8"
+                            Padding="8,3" Click="CalcResultBtn_Click"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,46 @@
+<UserControl x:Class="AuraShell.Modules.Widgets.Cards.AppleWeatherWidget"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent"
+             FontFamily="Segoe UI Variable Display, Segoe UI">
+    <!-- Authentic iOS 18 Dynamic Gradient Sky Card -->
+    <Border x:Name="SkyBackground" CornerRadius="24" Padding="16,14">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0.2,0" EndPoint="0.8,1">
+                <GradientStop x:Name="SkyStopTop" Color="#1E6FD9" Offset="0.0"/>
+                <GradientStop x:Name="SkyStopMid" Color="#3C8CE7" Offset="0.52"/>
+                <GradientStop x:Name="SkyStopBot" Color="#6BB5FF" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Top: City + Location Arrow + Large Tabular Temperature -->
+            <StackPanel Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="CityText" Text="Kuwait City" FontSize="14" FontWeight="SemiBold"
+                               Foreground="#FFFFFF" TextTrimming="CharacterEllipsis" MaxWidth="128"/>
+                    <TextBlock Text=" ⌖" FontSize="12" Foreground="#DDFFFFFF" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <TextBlock x:Name="TempText" Text="--°" FontSize="44" FontWeight="Light"
+                           Foreground="#FFFFFF" Margin="-2,-4,0,0"
+                           Typography.NumeralAlignment="Tabular"/>
+            </StackPanel>
+
+            <!-- Bottom: Condition Icon, Localized Condition, and H:/L: -->
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <TextBlock x:Name="ConditionIconText" Text="☀️" FontSize="16" Margin="0,0,0,1"/>
+                <TextBlock x:Name="ConditionLabelText" Text="{DynamicResource WeatherClear}"
+                           FontSize="12.5" FontWeight="Medium" Foreground="#F2FFFFFF"/>
+                <TextBlock x:Name="HighLowText" Text="H:--°  L:--°" FontSize="12" FontWeight="SemiBold"
+                           Foreground="#DDFFFFFF" Margin="0,1,0,0" Typography.NumeralAlignment="Tabular"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

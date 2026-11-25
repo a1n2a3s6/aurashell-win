@@ -1,0 +1,115 @@
+<UserControl x:Class="AuraShell.Modules.Island.Tabs.MediaTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid Margin="4,2,4,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="12"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Top Row: Album Art + Track Marquee + Visualizer + Transport -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="74"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Feature 1: Live Album Art -->
+            <Border Grid.Column="0" Width="74" Height="74" CornerRadius="14" Background="#141824"
+                    BorderBrush="#242B3D" BorderThickness="1" ClipToBounds="True">
+                <Grid>
+                    <TextBlock Text="♫" FontSize="28" Foreground="#5A6A8A"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               x:Name="ArtPlaceholder"/>
+                    <Image x:Name="AlbumArtImage" Stretch="UniformToFill" Visibility="Collapsed"/>
+                </Grid>
+            </Border>
+
+            <!-- Feature 2: Track / Artist Marquee + Feature 3/4: Transport Controls -->
+            <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                <Canvas x:Name="TitleMarqueeHost" FlowDirection="LeftToRight" Height="22" ClipToBounds="True">
+                    <TextBlock x:Name="TrackTitleText"
+                               Text="{DynamicResource MediaNothingPlaying}"
+                               FontSize="14.5" FontWeight="SemiBold" Foreground="#F8FAFC"
+                               Canvas.Left="0" Canvas.Top="0"/>
+                </Canvas>
+                <TextBlock x:Name="TrackArtistText"
+                           Text="{DynamicResource MediaIdleSubtitle}"
+                           FontSize="12" Foreground="#94A3B8"
+                           TextTrimming="CharacterEllipsis" Margin="0,2,0,8"/>
+
+                <!-- Transport Buttons: Prev / Play-Pause / Next -->
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="PrevBtn" Style="{StaticResource IslandIconBtn}" Content="⏮"
+                            Click="PrevBtn_Click" Width="34" Height="30" Margin="0,0,6,0"/>
+                    <Button x:Name="PlayPauseBtn" Style="{StaticResource IslandAccentBtn}" Content="▶"
+                            Click="PlayPauseBtn_Click" Width="46" Height="30" Margin="0,0,6,0"/>
+                    <Button x:Name="NextBtn" Style="{StaticResource IslandIconBtn}" Content="⏭"
+                            Click="NextBtn_Click" Width="34" Height="30"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Feature 5: Animated 7-Bar Audio Visualizer -->
+            <Border Grid.Column="3" Background="#0F131D" CornerRadius="12" Padding="10,8"
+                    VerticalAlignment="Center" BorderBrush="#1E2536" BorderThickness="1" Margin="8,0,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="44">
+                    <Rectangle x:Name="VisBar0" Width="4" Height="10" RadiusX="2" RadiusY="2" Fill="#38BDF8" VerticalAlignment="Bottom" Margin="2,0"/>
+                    <Rectangle x:Name="VisBar1" Width="4" Height="16" RadiusX="2" RadiusY="2" Fill="#60A5FA" VerticalAlignment="Bottom" Margin="2,0"/>
+                    <Rectangle x:Name="VisBar2" Width="4" Height="24" RadiusX="2" RadiusY="2" Fill="#818CF8" VerticalAlignment="Bottom" Margin="2,0"/>
+                    <Rectangle x:Name="VisBar3" Width="4" Height="32" RadiusX="2" RadiusY="2" Fill="#A78BFA" VerticalAlignment="Bottom" Margin="2,0"/>
+                    <Rectangle x:Name="VisBar4" Width="4" Height="22" RadiusX="2" RadiusY="2" Fill="#C084FC" VerticalAlignment="Bottom" Margin="2,0"/>
+                    <Rectangle x:Name="VisBar5" Width="4" Height="14" RadiusX="2" RadiusY="2" Fill="#E879F9" VerticalAlignment="Bottom" Margin="2,0"/>
+                    <Rectangle x:Name="VisBar6" Width="4" Height="10" RadiusX="2" RadiusY="2" Fill="#F472B6" VerticalAlignment="Bottom" Margin="2,0"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Bottom Row: Volume Slider + Mute + Mic Mute + Bluetooth/Audio Quick-Open -->
+        <Border Grid.Row="2" Background="#0E121B" CornerRadius="14" Padding="10,8"
+                BorderBrush="#1E2536" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="8"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Feature 6: Speaker Mute + Volume Slider -->
+                <Button x:Name="MuteBtn" Grid.Column="0" Style="{StaticResource IslandChipBtn}"
+                        Content="🔊" Click="MuteBtn_Click" Padding="8,4" Margin="0,0,8,0"/>
+
+                <Slider x:Name="VolumeSlider" Grid.Column="1" Minimum="0" Maximum="100" Value="50"
+                        VerticalAlignment="Center" ValueChanged="VolumeSlider_ValueChanged"/>
+
+                <TextBlock x:Name="VolumePctText" Grid.Column="2" Text="50%" FontSize="11.5"
+                           Foreground="#CBD5E1" VerticalAlignment="Center" Margin="8,0,0,0" MinWidth="34" TextAlignment="Right"/>
+
+                <!-- Feature 7: Mic Mute Toggle -->
+                <Button x:Name="MicMuteBtn" Grid.Column="4" Style="{StaticResource IslandChipBtn}"
+                        Click="MicMuteBtn_Click" Padding="9,5">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="MicIcon" Text="🎙️" Margin="0,0,4,0"/>
+                        <TextBlock x:Name="MicLabel" Text="{DynamicResource MediaMic}" FontSize="11.5"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 8: Bluetooth / Audio Output Quick-Open -->
+                <Button x:Name="AudioOutBtn" Grid.Column="6" Style="{StaticResource IslandChipBtn}"
+                        Click="AudioOutBtn_Click" Padding="9,5">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🎧" Margin="0,0,4,0"/>
+                        <TextBlock Text="{DynamicResource MediaAudioOut}" FontSize="11.5"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

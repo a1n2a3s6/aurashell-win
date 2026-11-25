@@ -1,0 +1,178 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- App & Shell -->
+    <sys:String x:Key="AppName">AuraShell</sys:String>
+    <sys:String x:Key="AppSubtitle">AuraIsland Command Hub</sys:String>
+    <sys:String x:Key="TrayShowHide">Toggle AuraIsland</sys:String>
+    <sys:String x:Key="TrayToggleWidgets">Show / Hide Desktop Widgets</sys:String>
+    <sys:String x:Key="TrayToggleDock">Show / Hide AeroDock</sys:String>
+    <sys:String x:Key="TrayResetWidgets">Reset Widget Layout</sys:String>
+    <sys:String x:Key="TrayStudio">Open AuraShell Studio</sys:String>
+    <sys:String x:Key="TraySwitchLang">Switch to العربية (Arabic)</sys:String>
+    <sys:String x:Key="TrayExit">Exit AuraShell</sys:String>
+
+    <!-- Island Tabs -->
+    <sys:String x:Key="TabMedia">Media</sys:String>
+    <sys:String x:Key="TabAi">AI</sys:String>
+    <sys:String x:Key="TabShelf">Shelf</sys:String>
+    <sys:String x:Key="TabFocus">Focus</sys:String>
+    <sys:String x:Key="TabTools">Tools</sys:String>
+
+    <!-- Tab 1: Media & Audio -->
+    <sys:String x:Key="MediaNothingPlaying">Nothing Playing</sys:String>
+    <sys:String x:Key="MediaIdleSubtitle">Play Spotify, YouTube, Chrome or Edge</sys:String>
+    <sys:String x:Key="MediaVolume">Volume</sys:String>
+    <sys:String x:Key="MediaMute">Mute</sys:String>
+    <sys:String x:Key="MediaMic">Mic</sys:String>
+    <sys:String x:Key="MediaMicMuted">Mic Muted</sys:String>
+    <sys:String x:Key="MediaAudioOut">Audio / BT</sys:String>
+
+    <!-- Tab 2: AI Copilot -->
+    <sys:String x:Key="AiPlaceholder">Ask Aura AI anything...</sys:String>
+    <sys:String x:Key="AiSend">Ask</sys:String>
+    <sys:String x:Key="AiAskScreen">Ask Screen</sys:String>
+    <sys:String x:Key="AiTranslate">AR ↔ EN</sys:String>
+    <sys:String x:Key="AiSummarize">Summarize</sys:String>
+    <sys:String x:Key="AiFixGrammar">Fix Grammar</sys:String>
+    <sys:String x:Key="AiExplainCode">Explain Code</sys:String>
+    <sys:String x:Key="AiCopyAnswer">Copy</sys:String>
+    <sys:String x:Key="AiCopied">Copied!</sys:String>
+    <sys:String x:Key="AiThinking">Thinking...</sys:String>
+    <sys:String x:Key="AiNoKey">Set your Gemini or Groq API key in AuraShell Studio (⚙️).</sys:String>
+    <sys:String x:Key="AiClipboardEmpty">Clipboard is empty. Copy some text first.</sys:String>
+    <sys:String x:Key="AiReadyHint">Ready. Pick a 1-click clipboard action, capture your screen, or type a prompt.</sys:String>
+
+    <!-- Tab 3: File Shelf & Clipboard -->
+    <sys:String x:Key="ShelfDropHint">Drop files here to hold — drag out into any app</sys:String>
+    <sys:String x:Key="ShelfClear">Clear</sys:String>
+    <sys:String x:Key="ShelfFilesBadge">files</sys:String>
+    <sys:String x:Key="ShelfClipboardTitle">Recent Clipboard (Click to Paste)</sys:String>
+    <sys:String x:Key="ShelfClipboardEmpty">Copy text to populate history...</sys:String>
+    <sys:String x:Key="ShelfPinNote">Pinned Note</sys:String>
+    <sys:String x:Key="ShelfScratchpad">Quick Scratchpad</sys:String>
+
+    <!-- Tab 4: Productivity & Timers -->
+    <sys:String x:Key="ProdPomodoro">Pomodoro 25m</sys:String>
+    <sys:String x:Key="ProdCountdown">Countdown</sys:String>
+    <sys:String x:Key="ProdStopwatch">Stopwatch</sys:String>
+    <sys:String x:Key="ProdStart">Start</sys:String>
+    <sys:String x:Key="ProdPause">Pause</sys:String>
+    <sys:String x:Key="ProdReset">Reset</sys:String>
+    <sys:String x:Key="ProdTodos">Today's To-Do</sys:String>
+    <sys:String x:Key="ProdTodoPlaceholder">Add quick task...</sys:String>
+    <sys:String x:Key="ProdCaffeine">Keep-Awake</sys:String>
+    <sys:String x:Key="ProdDnd">Focus / DND</sys:String>
+    <sys:String x:Key="ProdCalcPlaceholder">= 145*12</sys:String>
+
+    <!-- Tab 5: Pro Utilities & Telemetry -->
+    <sys:String x:Key="UtilCpu">CPU</sys:String>
+    <sys:String x:Key="UtilRam">RAM</sys:String>
+    <sys:String x:Key="UtilBattery">Battery</sys:String>
+    <sys:String x:Key="UtilDisk">Disk</sys:String>
+    <sys:String x:Key="UtilNetwork">Net</sys:String>
+    <sys:String x:Key="UtilEyedropper">Eyedropper</sys:String>
+    <sys:String x:Key="UtilScreenshot">Screenshot</sys:String>
+    <sys:String x:Key="UtilFullShot">Full Shot</sys:String>
+    <sys:String x:Key="UtilLockPc">Lock PC</sys:String>
+    <sys:String x:Key="UtilRecycleBin">Empty Bin</sys:String>
+    <sys:String x:Key="UtilCopyIp">Copy IP</sys:String>
+    <sys:String x:Key="UtilQrCode">QR Code</sys:String>
+    <sys:String x:Key="UtilStudio">Studio</sys:String>
+    <sys:String x:Key="UtilWeatherLoading">Loading...</sys:String>
+    <sys:String x:Key="UtilBinEmptied">Recycle Bin emptied</sys:String>
+    <sys:String x:Key="UtilShotSaved">Screenshot copied &amp; saved</sys:String>
+    <sys:String x:Key="UtilEyedropperHint">Click anywhere to copy HEX — ESC to cancel</sys:String>
+    <sys:String x:Key="UtilRegionHint">Drag to capture region — ESC to cancel</sys:String>
+
+    <!-- Weather Conditions -->
+    <sys:String x:Key="WeatherClear">Clear</sys:String>
+    <sys:String x:Key="WeatherPartlyCloudy">Partly Cloudy</sys:String>
+    <sys:String x:Key="WeatherFog">Foggy</sys:String>
+    <sys:String x:Key="WeatherDrizzle">Drizzle</sys:String>
+    <sys:String x:Key="WeatherRain">Rain</sys:String>
+    <sys:String x:Key="WeatherSnow">Snow</sys:String>
+    <sys:String x:Key="WeatherStorm">Thunderstorm</sys:String>
+
+    <!-- Phase 2: AuraWidgets (Apple Sonoma / iOS 18) -->
+    <sys:String x:Key="WidgetLockPosition">Lock Position</sys:String>
+    <sys:String x:Key="WidgetUnlockPosition">Unlock Position</sys:String>
+    <sys:String x:Key="WidgetSwitchSize">Switch Size</sys:String>
+    <sys:String x:Key="WidgetSizeSmall">Small (172×172)</sys:String>
+    <sys:String x:Key="WidgetSizeMedium">Medium (360×172)</sys:String>
+    <sys:String x:Key="WidgetSizeLarge">Large (360×360)</sys:String>
+    <sys:String x:Key="WidgetThemeMenu">Glass Theme</sys:String>
+    <sys:String x:Key="WidgetThemeDark">Dark Glass</sys:String>
+    <sys:String x:Key="WidgetThemeLight">Light Glass</sys:String>
+    <sys:String x:Key="WidgetThemeAuto">Auto (Windows)</sys:String>
+    <sys:String x:Key="WidgetOpacityMenu">Opacity</sys:String>
+    <sys:String x:Key="WidgetHide">Hide Widget</sys:String>
+
+    <sys:String x:Key="WidgetClockTitle">Clock</sys:String>
+    <sys:String x:Key="WidgetMusicTitle">Music</sys:String>
+    <sys:String x:Key="WidgetRingsTitle">System Activity</sys:String>
+    <sys:String x:Key="WidgetWeatherTitle">Weather</sys:String>
+    <sys:String x:Key="WidgetWeatherHigh">H</sys:String>
+    <sys:String x:Key="WidgetWeatherLow">L</sys:String>
+    <sys:String x:Key="WidgetCalendarTitle">Calendar</sys:String>
+    <sys:String x:Key="WidgetRemindersTitle">Reminders</sys:String>
+    <sys:String x:Key="WidgetRemindersEmpty">All caught up</sys:String>
+    <sys:String x:Key="WidgetRemindersAdd">New reminder...</sys:String>
+
+    <!-- Phase 3: AeroDock & Bilingual Studio Control Center -->
+    <sys:String x:Key="DockDownloads">Downloads</sys:String>
+    <sys:String x:Key="DockRecycleBin">Recycle Bin</sys:String>
+    <sys:String x:Key="DockSettings">AuraShell Studio</sys:String>
+    <sys:String x:Key="DockOpenNew">Open New Instance</sys:String>
+    <sys:String x:Key="DockUnpin">Unpin from Dock</sys:String>
+    <sys:String x:Key="DockOpenDownloads">Open Downloads Folder</sys:String>
+    <sys:String x:Key="DockEmptyBin">Empty Recycle Bin</sys:String>
+
+    <sys:String x:Key="StudioTitle">AuraShell Studio</sys:String>
+    <sys:String x:Key="StudioSubtitle">Control Center</sys:String>
+    <sys:String x:Key="StudioNavOverview">Overview</sys:String>
+    <sys:String x:Key="StudioNavIsland">AuraIsland</sys:String>
+    <sys:String x:Key="StudioNavWidgets">AuraWidgets</sys:String>
+    <sys:String x:Key="StudioNavDock">AeroDock</sys:String>
+    <sys:String x:Key="StudioNavSystem">System &amp; Startup</sys:String>
+
+    <sys:String x:Key="StudioMasterModules">Core Shell Modules</sys:String>
+    <sys:String x:Key="StudioThemePresets">1-Click Theme Presets</sys:String>
+    <sys:String x:Key="PresetSonomaDark">macOS Sonoma Dark</sys:String>
+    <sys:String x:Key="PresetVisionLight">VisionOS Frosted Light</sys:String>
+    <sys:String x:Key="PresetObsidianPro">Obsidian Pro</sys:String>
+
+    <sys:String x:Key="StudioIslandHideFs">Auto-Hide AuraIsland in Fullscreen Games &amp; Video</sys:String>
+    <sys:String x:Key="StudioIslandPillMode">Default Compact Pill Display</sys:String>
+    <sys:String x:Key="PillModeClock">Live Clock</sys:String>
+    <sys:String x:Key="PillModeMedia">Now Playing</sys:String>
+    <sys:String x:Key="PillModeTelemetry">CPU / RAM</sys:String>
+    <sys:String x:Key="StudioAiProvider">Default AI Provider</sys:String>
+    <sys:String x:Key="StudioGeminiKey">Gemini API Key (gemini-2.5-flash)</sys:String>
+    <sys:String x:Key="StudioGroqKey">Groq API Key (llama-3.3-70b-versatile)</sys:String>
+    <sys:String x:Key="StudioTestLatency">Test API Latency</sys:String>
+    <sys:String x:Key="StudioCaffeineHint">Keep PC &amp; Display Awake (Caffeine)</sys:String>
+
+    <sys:String x:Key="StudioWidgetGallery">Apple Desktop Widgets Gallery</sys:String>
+    <sys:String x:Key="StudioWidgetTheme">Desktop Widget Glass Theme</sys:String>
+    <sys:String x:Key="StudioWidgetOpacity">Widget Glass Opacity</sys:String>
+    <sys:String x:Key="StudioWidgetSnap">Magnetic 16px Snap-to-Grid</sys:String>
+    <sys:String x:Key="StudioLockAllWidgets">Lock All Widgets</sys:String>
+    <sys:String x:Key="StudioUnlockAllWidgets">Unlock All Widgets</sys:String>
+
+    <sys:String x:Key="StudioDockIconSize">Base Dock Icon Size</sys:String>
+    <sys:String x:Key="StudioDockMag">Cosine Magnification Strength</sys:String>
+    <sys:String x:Key="StudioDockAutoHide">Smart Auto-Hide on Maximized / Fullscreen Windows</sys:String>
+    <sys:String x:Key="StudioHideTaskbar">Hide Windows Taskbar (Safely Restored on Exit)</sys:String>
+    <sys:String x:Key="StudioResetDock">Reset Default Dock Pins</sys:String>
+
+    <sys:String x:Key="StudioLaunchWindows">Launch AuraShell automatically with Windows</sys:String>
+    <sys:String x:Key="StudioWeatherCity">Weather City (Open-Meteo)</sys:String>
+    <sys:String x:Key="StudioMemoryUsage">AuraShell Memory Footprint</sys:String>
+    <sys:String x:Key="StudioTrimMemory">Optimize RAM</sys:String>
+    <sys:String x:Key="StudioSave">Save &amp; Apply</sys:String>
+    <sys:String x:Key="StudioSaved">Settings saved!</sys:String>
+    <sys:String x:Key="StudioClose">Close</sys:String>
+
+</ResourceDictionary>

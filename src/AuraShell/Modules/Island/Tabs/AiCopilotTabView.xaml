@@ -1,0 +1,95 @@
+<UserControl x:Class="AuraShell.Modules.Island.Tabs.AiCopilotTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid Margin="4,2,4,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 0: Quick AI Chat Input + Send + Provider/Model Switch -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="PromptInput" Grid.Column="0" Style="{StaticResource IslandTextBox}"
+                     KeyDown="PromptInput_KeyDown"
+                     ToolTip="{DynamicResource AiPlaceholder}"/>
+
+            <Button x:Name="AskBtn" Grid.Column="2" Style="{StaticResource IslandAccentBtn}"
+                    Content="{DynamicResource AiSend}" Click="AskBtn_Click" Padding="12,5"/>
+
+            <!-- Feature 8: Provider/Model Quick-Switch -->
+            <Button x:Name="ProviderSwitchBtn" Grid.Column="4" Style="{StaticResource IslandChipBtn}"
+                    Click="ProviderSwitchBtn_Click" Padding="8,5" FontSize="11"/>
+        </Grid>
+
+        <!-- Row 2: 5 One-Click AI Action Pills -->
+        <WrapPanel Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="AskScreenBtn" Style="{StaticResource IslandChipBtn}"
+                    Click="AskScreenBtn_Click" Margin="0,0,5,4" Padding="8,4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="📸" Margin="0,0,4,0"/>
+                    <TextBlock Text="{DynamicResource AiAskScreen}" FontSize="11"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="TranslateBtn" Style="{StaticResource IslandChipBtn}"
+                    Click="TranslateBtn_Click" Margin="0,0,5,4" Padding="8,4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🌐" Margin="0,0,4,0"/>
+                    <TextBlock Text="{DynamicResource AiTranslate}" FontSize="11"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="SummarizeBtn" Style="{StaticResource IslandChipBtn}"
+                    Click="SummarizeBtn_Click" Margin="0,0,5,4" Padding="8,4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="📝" Margin="0,0,4,0"/>
+                    <TextBlock Text="{DynamicResource AiSummarize}" FontSize="11"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="FixGrammarBtn" Style="{StaticResource IslandChipBtn}"
+                    Click="FixGrammarBtn_Click" Margin="0,0,5,4" Padding="8,4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="✍️" Margin="0,0,4,0"/>
+                    <TextBlock Text="{DynamicResource AiFixGrammar}" FontSize="11"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="ExplainCodeBtn" Style="{StaticResource IslandChipBtn}"
+                    Click="ExplainCodeBtn_Click" Margin="0,0,5,4" Padding="8,4">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="💡" Margin="0,0,4,0"/>
+                    <TextBlock Text="{DynamicResource AiExplainCode}" FontSize="11"/>
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+
+        <!-- Row 4: AI Response Box + 1-Click Copy Answer -->
+        <Border Grid.Row="4" Background="#0E121B" CornerRadius="12" BorderBrush="#1E2536"
+                BorderThickness="1" Padding="10,7">
+            <Grid>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="0,0,48,0">
+                    <TextBlock x:Name="ResponseText"
+                               Text="{DynamicResource AiReadyHint}"
+                               TextWrapping="Wrap" FontSize="12" Foreground="#E2E8F0"/>
+                </ScrollViewer>
+
+                <Button x:Name="CopyAnswerBtn" Style="{StaticResource IslandChipBtn}"
+                        Content="{DynamicResource AiCopyAnswer}" Click="CopyAnswerBtn_Click"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" Padding="7,3" FontSize="10.5"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

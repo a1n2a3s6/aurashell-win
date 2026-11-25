@@ -1,0 +1,138 @@
+<UserControl x:Class="AuraShell.Modules.Island.Tabs.UtilitiesTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid Margin="4,2,4,2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="7"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 0: Features 1-4 Live Telemetry Strip (CPU %, RAM %, Battery % + Bolt, Net Up/Down) + Feature 11 Weather Pill -->
+        <UniformGrid Grid.Row="0" Columns="5">
+            <Border Background="#0E121B" CornerRadius="10" BorderBrush="#1E2536" BorderThickness="1" Padding="6,5" Margin="0,0,4,0">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource UtilCpu}" FontSize="9.5" Foreground="#94A3B8"/>
+                    <TextBlock x:Name="CpuText" Text="0%" FontSize="13.5" FontWeight="Bold" Foreground="#38BDF8" FontFamily="Consolas"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="#0E121B" CornerRadius="10" BorderBrush="#1E2536" BorderThickness="1" Padding="6,5" Margin="2,0">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource UtilRam}" FontSize="9.5" Foreground="#94A3B8"/>
+                    <TextBlock x:Name="RamText" Text="0%" FontSize="13.5" FontWeight="Bold" Foreground="#A78BFA" FontFamily="Consolas"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="#0E121B" CornerRadius="10" BorderBrush="#1E2536" BorderThickness="1" Padding="6,5" Margin="2,0">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource UtilBattery}" FontSize="9.5" Foreground="#94A3B8"/>
+                    <TextBlock x:Name="BatteryText" Text="100%" FontSize="13.5" FontWeight="Bold" Foreground="#34D399" FontFamily="Consolas"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="#0E121B" CornerRadius="10" BorderBrush="#1E2536" BorderThickness="1" Padding="6,5" Margin="2,0">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource UtilNetwork}" FontSize="9.5" Foreground="#94A3B8"/>
+                    <TextBlock x:Name="NetText" Text="↓0 ↑0" FontSize="10.5" FontWeight="SemiBold" Foreground="#FBBF24" FontFamily="Consolas" Margin="0,2,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Feature 11: Weather Pill -->
+            <Border Background="#0E121B" CornerRadius="10" BorderBrush="#1E2536" BorderThickness="1" Padding="6,5" Margin="4,0,0,0"
+                    Cursor="Hand" MouseLeftButtonUp="WeatherPill_Click" x:Name="WeatherPillBorder">
+                <StackPanel>
+                    <TextBlock x:Name="WeatherCityText" Text="Kuwait" FontSize="9.5" Foreground="#94A3B8" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock x:Name="WeatherTempText" Text="{DynamicResource UtilWeatherLoading}" FontSize="12.5" FontWeight="Bold" Foreground="#FDE047"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+
+        <!-- Row 2: Features 5-10 & 12 Action Grid + Inline QR Preview Popup -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <UniformGrid Grid.Column="0" Columns="4" Rows="2">
+                <!-- Feature 5: Color Eyedropper -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="EyedropperBtn_Click" Margin="0,0,4,4">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="🎨" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilEyedropper}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 6a: Quick Region Screenshot -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="RegionShotBtn_Click" Margin="2,0,2,4">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="📷" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilScreenshot}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 6b: Quick Full Screenshot -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="FullShotBtn_Click" Margin="2,0,2,4">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="🖥️" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilFullShot}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 7: Lock PC -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="LockPcBtn_Click" Margin="4,0,0,4">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="🔒" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilLockPc}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 8: Empty Recycle Bin -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="EmptyBinBtn_Click" Margin="0,4,4,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="🗑️" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilRecycleBin}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 9: Copy Local IP -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="CopyIpBtn_Click" Margin="2,4,2,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="🌐" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilCopyIp}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 10: Quick QR Generator for Clipboard URL -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="QrBtn_Click" Margin="2,4,2,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="📱" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilQrCode}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <!-- Feature 12: Open AuraShell Studio -->
+                <Button Style="{StaticResource IslandTileBtn}" Click="StudioBtn_Click" Margin="4,4,0,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="⚙️" FontSize="16" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource UtilStudio}" FontSize="10" Margin="0,2,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </UniformGrid>
+
+            <!-- Inline QR Code Card (shown when QR button is clicked) -->
+            <Border x:Name="QrPreviewBorder" Grid.Column="1" Visibility="Collapsed"
+                    Background="#FFFFFF" CornerRadius="12" Padding="6" Margin="8,0,0,0"
+                    Width="128" VerticalAlignment="Center" Cursor="Hand"
+                    MouseLeftButtonUp="QrPreviewBorder_Click" ToolTip="Click to dismiss">
+                <StackPanel>
+                    <Image x:Name="QrImage" Width="112" Height="112" Stretch="Uniform"/>
+                    <TextBlock x:Name="QrCaption" Text="QR" FontSize="9" Foreground="#0F172A"
+                               HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" MaxWidth="112"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
